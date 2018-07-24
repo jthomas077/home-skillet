@@ -1,0 +1,28 @@
+{
+    "compilerOptions":
+    {
+        "target": "ESNEXT",
+        "module": "ESNEXT",
+        "lib": ["es5", "es6", "es7", "esnext", "dom"],
+        "noImplicitAny": false,
+        "allowJs": false,
+        "declaration": false,
+        "declarationMap": false,
+        "strict": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "importHelpers": false,
+        "removeComments": true,
+        "experimentalDecorators": true
+    },
+
+    "awesomeTypescriptLoaderOptions":
+    {
+        "useTranspileModule": true,
+        "useBabel": true,
+        "useCache": true,
+        "cacheDirectory": ".hkcache",
+        "forceIsolatedModules": true
+    }
+}

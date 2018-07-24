@@ -1,0 +1,61 @@
+{
+  "name": "toolkit",
+  "version": "0.1.0",
+  "description": "quack quack",
+  "main": "gulpfile.babel.js",
+  "private": true,
+  "engines": {
+    "node": "8.x || 9.x",
+    "npm": "~5.x.x"
+  },
+  "dependencies": {
+    "gsap": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.5",
+    "awesome-typescript-loader": "^5.2.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "browser-sync": "^2.16.0",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cross-env": "^5.2.0",
+    "del": "^3.0.0",
+    "delete-empty": "^2.0.0",
+    "directory-named-webpack-plugin": "^4.0.0",
+    "dotenv-expand": "^4.2.0",
+    "dotenv-extended": "^2.0.2",
+    "eventsource-polyfill": "^0.9.6",
+    "gulp": "^4.0.0",
+    "gulp-file-include": "^1.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-inject": "^4.2.0",
+    "gulp-noop": "^1.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-glob": "^1.0.9",
+    "gulp-sourcemaps": "^2.4.0",
+    "jquery": "^3.3.1",
+    "name-that-color": "^0.1.0",
+    "node-notifier": "^5.2.1",
+    "normalize-scss": "^7.0.1",
+    "require-dir": "^1.0.0",
+    "sass-mq": "^5.0.0",
+    "turbocolor": "^2.4.1",
+    "typescript": "^2.9.2",
+    "undertaker-forward-reference": "^1.0.2",
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-hot-middleware": "^2.22.3",
+    "webpack-stream": "^5.0.0"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "tooling": "gulp --tooling",
+    "fun": "gulp --fun",
+    "conf": "gulp --conf"
+  },
+  "author": "jawsh",
+  "license": "MIT"
+}

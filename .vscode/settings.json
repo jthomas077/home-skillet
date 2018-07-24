@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "csscomb.preset": "./.csscomb.json",
+    "csscomb.formatOnSave": true,
+    "typescript.tsc.autoDetect": "off",
+    "jake.autoDetect": "off",
+    "grunt.autoDetect": "off",
+    "gulp.autoDetect": "off"
+}

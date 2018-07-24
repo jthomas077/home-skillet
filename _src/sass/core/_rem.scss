@@ -1,0 +1,16 @@
+
+// Baseline, measured in pixels
+// The value should be the same as the font-size value for the html element
+// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+// then the variable below would be 10px.
+$baseline-px: 10;
+
+@function strip-unit($num)
+{
+    @return $num / ($num * 0 + 1);
+}
+
+@function rem($size)
+{
+    @return #{strip-unit($size) / $baseline-px}rem;
+}

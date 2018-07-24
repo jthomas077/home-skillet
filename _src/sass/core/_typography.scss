@@ -1,0 +1,30 @@
+
+@import "rem";
+
+$headings: (
+    (h1, 72px, 28px, $light, $brand-font-primary, color("black")),
+    (h2, 60px, 28px, $light, $brand-font-primary, color("black")),
+    (h3, 48px, 24px, $regular, $brand-font-primary, color("black")),
+    (h4, 42px, 20px, $semibold, $brand-font-primary, color("black")),
+    (h5, 38px, 18px, $regular, $brand-font-primary, color("black")),
+    (h6, 22px, 16px, $semibold, $brand-font-primary, color("black"))
+);
+
+@each $heading, $size, $mobilesize, $weight, $family, $color in $headings
+{
+    #{$heading}
+    {
+        $remsize: rem($size);
+        $remmobilesize: rem($mobilesize);
+
+        @include mq($until: tablet)
+        {
+            font-size: $remmobilesize;
+        }
+
+        font-weight: $weight;
+        font-family: $family;
+        font-size: $remsize;
+        color: $color;
+    }
+}

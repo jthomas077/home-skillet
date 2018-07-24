@@ -1,0 +1,9 @@
+
+@mixin vertical-align()
+{
+    display: inline-block;
+    height: 100%;
+    margin-right: -0.5rem;
+    content: "";
+    vertical-align: middle;
+}

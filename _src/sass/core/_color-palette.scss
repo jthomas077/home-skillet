@@ -1,0 +1,17 @@
+
+/*
+    // getme: colors   <= no space
+      "*": #dgfgfg,    <= replace `*` with `?`
+    // gotme: colors   <= no space
+*/
+$colors: (
+    "white": #fff,
+    "black": #000,
+    "red": #f00,
+    "green": #0f0,
+
+    "body": color("black"),
+    "outline": color("black"),
+    "ok": color("green"),
+    "err": color("red"),
+);

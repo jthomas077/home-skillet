@@ -1,0 +1,150 @@
+﻿
+@charset "utf-8";
+
+@import "normalize"; @include normalize();
+@import "mq";
+
+@import "variables";
+@import "mixins/**/*";
+
+@import
+    "core/breakpoints",
+    "core/color-palette",
+    "core/color",
+    "core/rem",
+    "core/fonts";
+
+
+html
+{
+    font-size: 62.5%;
+    width: 100%;
+    height: 100%;
+}
+
+body
+{
+    font-family: $brand-font-primary;
+    font-size: rem(14);
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    width: inherit;
+    height: inherit;
+    color: color("body");
+
+    text-rendering: optimizelegibility;
+}
+
+*
+{
+    position: relative;
+    box-sizing: border-box;
+}
+
+*:not(.rtf)
+{
+    @include nomp;
+
+    ul
+    {
+        list-style: none;
+    }
+}
+
+*:not(.pos)
+{
+    position: relative;
+}
+
+*:not(.nofocus)
+{
+    &:focus
+    {
+        z-index: 99;
+        outline: rem(1) dashed color("outline") !important;
+    }
+}
+
+input[type="search"]
+{
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration,
+    &::-ms-clear
+    {
+        display: none;
+        width: 0;
+        height: 0;
+
+        -webkit-appearance: none;
+    }
+}
+
+fieldset
+{
+    border: 0;
+}
+
+textarea
+{
+    resize: none;
+}
+
+
+// CONTAINER STYLES
+.base
+{
+    width: inherit;
+    height: inherit;
+    text-align: center;
+}
+
+.base__container
+{
+    width: inherit;
+    height: inherit;
+    text-align: left;
+}
+
+.wrapper
+{
+    width: map-get($mq-breakpoints, wrapper);
+    max-width: 100%;
+    margin: auto;
+    text-align: left;
+}
+
+
+// GENERAL STYLES
+.seperator
+{
+    display: inline-block;
+}
+
+img.svg
+{
+    display: none;
+}
+
+img.svg-replaced
+{
+    display: inline-block;
+}
+
+.ok
+{
+    color: color("ok");
+}
+
+.error,
+.required
+{
+    display: none;
+    color: color("err");
+}
+
+@import "core/typography";
+@import "global";
+@import "../modules/**/*";

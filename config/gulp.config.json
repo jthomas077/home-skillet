@@ -1,0 +1,14 @@
+{
+    "init": "make_it_happen",
+    "build": "aw_yea",
+    "sass": "make_it_sassy",
+    "js": "secret_sauce",
+    "color": "color_me_silly",
+    "include": "cool_kat",
+    "copy": "got_wat_ya_need",
+    "image": "mri",
+    "cleanup": "bagit_n_tagit",
+    "clean": "liquidate",
+    "watch": "stalk_me",
+    "browsersync": "got_me_goggles"
+}
