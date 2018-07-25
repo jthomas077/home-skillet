@@ -23,7 +23,7 @@ html
 
 body
 {
-    font-family: $brand-font-primary;
+    font-family: $font-primary;
     font-size: rem(14);
     font-weight: normal;
     font-style: normal;
@@ -61,7 +61,7 @@ body
     &:focus
     {
         z-index: 99;
-        outline: rem(1) dashed color("outline") !important;
+        outline: 1px dashed color("outline") !important;
     }
 }
 
@@ -134,14 +134,14 @@ img.svg-replaced
 
 .ok
 {
-    color: color("ok");
+    color: $ok;
 }
 
 .error,
 .required
 {
     display: none;
-    color: color("err");
+    color: $err;
 }
 
 @import "core/typography";
