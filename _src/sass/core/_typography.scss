@@ -1,30 +1,26 @@
 
 @import "rem";
-
 $headings: (
-    (h1, 72px, 28px, $light, $brand-font-primary, color("black")),
-    (h2, 60px, 28px, $light, $brand-font-primary, color("black")),
-    (h3, 48px, 24px, $regular, $brand-font-primary, color("black")),
-    (h4, 42px, 20px, $semibold, $brand-font-primary, color("black")),
-    (h5, 38px, 18px, $regular, $brand-font-primary, color("black")),
-    (h6, 22px, 16px, $semibold, $brand-font-primary, color("black"))
+    (h1, 72px, 28px, $light, $font-primary, $black),
+    (h2, 60px, 28px, $light, $font-primary, $black),
+    (h3, 48px, 24px, $regular, $font-primary, $black),
+    (h4, 42px, 20px, $semibold, $font-primary, $black),
+    (h5, 38px, 18px, $regular, $font-primary, $black),
+    (h6, 22px, 16px, $semibold, $font-primary, $black)
 );
 
 @each $heading, $size, $mobilesize, $weight, $family, $color in $headings
 {
     #{$heading}
     {
-        $remsize: rem($size);
-        $remmobilesize: rem($mobilesize);
+        font-family: $family;
+        font-size: rem($size);
+        font-weight: $weight;
+        color: $color;
 
         @include mq($until: tablet)
         {
-            font-size: $remmobilesize;
+            font-size: rem($mobilesize);
         }
-
-        font-weight: $weight;
-        font-family: $family;
-        font-size: $remsize;
-        color: $color;
     }
 }
