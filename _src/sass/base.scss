@@ -10,7 +10,6 @@
 @import
     "core/breakpoints",
     "core/color-palette",
-    "core/color",
     "core/rem",
     "core/fonts";
 
@@ -31,7 +30,7 @@ body
     line-height: 1;
     width: inherit;
     height: inherit;
-    color: color("body");
+    color: $body;
 
     text-rendering: optimizelegibility;
 }

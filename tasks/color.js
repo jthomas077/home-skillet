@@ -11,31 +11,53 @@ export const color_me_silly = () =>
             .pipe(plumber())
             .pipe(inject(src(`${process.env.SRC}/sass/core/_color-palette.scss`),
             {
-                starttag: '// getme:colors',
-                endtag: '// gotme:colors',
-                removeTags: true,
+                starttag: '// ******* GET COLORS ******* //',
+                endtag: '// ******* GOT COLORS ******* //',
 
                 transform: (filepath, file, i, length) =>
                 {
                     const raw = file.contents.toString('utf8');
-                    let colorsToTransform = raw.match(/"\?" ?: ?#.*,?/g);
+                    const colorsToTransform = raw.match(/(?<!\$.*?: ?)#.*?(?=;)/gm);
 
                     if (colorsToTransform === null)
                     {
                         throw '';
                     }
 
-                    return colorsToTransform.map(c =>
+                    if (__DEV__)
                     {
-                        const hex = c.match(/#.+(?=( |,))/g);
-                        const colorme = color.name(hex[0]).reverse();
+                        console.log('   Transforming Colors =>', colorsToTransform)
+                    }
 
-                        if (!colorme.includes('Invalid'))
+                    return colorsToTransform.map(hex =>
+                    {
+                        const color_me = color.name(hex);
+                        const color_name = color_me[1].replace(/ /g, '-').toLowerCase();
+                        const color_hex = color_me[0];
+                        const color_exact = color_me[2];
+
+                        color_me.pop();
+
+                        if (!color_name.includes('invalid'))
                         {
-                            return `"${colorme[1]}": ${hex}, // ${(!colorme[0]) ? `'approx match -> ' ${colorme[2]}` : ''}`;
+                            if (__DEV__)
+                            {
+                                console.log('   Colors Transformed =>', color_me.reverse());
+                            }
+
+                            return `$${color_name}: ${hex};${(!color_exact) ? ` // approx match => ${color_hex}` : ''}`;
+                        }
+                        else
+                        {
+                            if (__DEV__)
+                            {
+                                console.log('   Colors NOT Transformed =>', color_me.reverse());
+                            }
+
+                            return `// ${hex} => Invalid Color`;
                         }
                     })
-                    .join('\n    ');
+                    .join('\n');
                 }
             }))
             .pipe(plumber.stop())

@@ -7,5 +7,6 @@
     "typescript.tsc.autoDetect": "off",
     "jake.autoDetect": "off",
     "grunt.autoDetect": "off",
-    "gulp.autoDetect": "off"
+    "gulp.autoDetect": "off",
+    "problems.decorations.enabled": false
 }
