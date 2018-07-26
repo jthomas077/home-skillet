@@ -35,12 +35,12 @@ abstract class Module
     /**
      * @abstract
      */
-    init = () => {};
+    init() {};
 
     /**
      * @abstract
      */
-    bindEventListeners = () => {};
+    bindEventListeners() {};
 }
 
 export default Module;

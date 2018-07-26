@@ -14,7 +14,11 @@
         "esModuleInterop": true,
         "importHelpers": false,
         "removeComments": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "typeRoots":
+        [
+            "node_modules/@types"
+        ]
     },
 
     "awesomeTypescriptLoaderOptions":
