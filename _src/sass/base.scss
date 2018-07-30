@@ -1,9 +1,6 @@
 ﻿
 @charset "utf-8";
 
-@import "normalize"; @include normalize();
-@import "mq";
-
 @import "variables";
 @import "mixins/**/*";
 
@@ -12,6 +9,9 @@
     "core/color-palette",
     "core/rem",
     "core/fonts";
+
+@import "normalize"; @include normalize();
+@import "mq";
 
 
 html
@@ -61,7 +61,7 @@ body
     &:focus
     {
         z-index: 99;
-        outline: 1px dashed color("outline") !important;
+        outline: 1px dashed $white !important;
     }
 }
 
@@ -145,5 +145,5 @@ img.svg-replaced
 }
 
 @import "core/typography";
-@import "global";
+@import "components/**/*";
 @import "../modules/**/*";

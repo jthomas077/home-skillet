@@ -2,7 +2,7 @@
 import gulp from 'gulp';
 import fwdRef from 'undertaker-forward-reference';
 import dir from 'require-dir';
-import './config/config';
+import './config';
 
 gulp.registry(fwdRef());
 

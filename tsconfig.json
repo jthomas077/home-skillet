@@ -21,12 +21,5 @@
         ]
     },
 
-    "awesomeTypescriptLoaderOptions":
-    {
-        "useTranspileModule": true,
-        "useBabel": true,
-        "useCache": true,
-        "cacheDirectory": ".hkcache",
-        "forceIsolatedModules": true
-    }
+    "exclude": ["node_modules"]
 }

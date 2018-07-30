@@ -3,7 +3,7 @@ import dotenvExtended from 'dotenv-extended';
 import dotenvExpand from 'dotenv-expand';
 import turbo from 'turbocolor';
 import notifier from 'node-notifier';
-import gulpConfig from '../config/gulp.config';
+import gulpConfig from '../config/gulp';
 
 /**
  *
@@ -31,6 +31,11 @@ const consts =
     __DEV__: process.env.NODE_ENV !== 'production',
 
     /**
+     * Check for a request to enable HMR.
+     */
+    __HMR__: args.includes('--hmr'),
+
+    /**
      * Check for a request to enable tooling mode.
      * Much like __DEV__, but for working on the toolkit.
      */
@@ -54,6 +59,18 @@ const consts =
  *
  */
 Object.keys(consts).forEach(key => global[key] = consts[key]);
+
+
+/**
+ *
+ */
+process.env.DEST = (__DEV__) ? process.env.DEV : process.env.BUILD;
+
+
+/**
+ *
+ */
+global.GULP_TASK = (taskName) => (__FUN__) ? gulpConfig[taskName] : taskName;
 
 
 /**
@@ -95,6 +112,15 @@ const msgs =
         notify: true,
         icon: './toolkit/j5.jpg',
         rule: !__DEV__
+    },
+
+    HMR:
+    {
+        msg: 'HMR Enabled',
+        visual: turbo.bgBlue.white,
+        notify: true,
+        icon: './toolkit/speedyg.png',
+        rule: __HMR__ && __DEV__
     },
 
     TOOLING:
@@ -154,6 +180,7 @@ Object.entries(msgs).forEach(([msg, config]) =>
 });
 
 
+
 /**
  *
  */
@@ -163,8 +190,9 @@ global.QUACK = (msg, visual, notify = false, icon) =>
     {
         notifier.notify(
         {
-            title: `${process.env.APP_NAME} on ${process.env.APP_URL}:${process.env.PORT}`,
+            title: `${process.env.APP_NAME}`,
             message: msg,
+            contentImage: undefined,
             icon: icon,
             sound: !__CONF__
         });
@@ -191,32 +219,35 @@ global.QUACKQUACK = (quack = __FUN__) =>
     }
 };
 
-/**
- *
- */
-process.env.DEST = (__DEV__) ? process.env.DEV : process.env.BUILD;
-
 
 /**
  *
  */
-global.GULP_TASK = (taskName) => (__FUN__) ? gulpConfig[taskName] : taskName;
-
-
 if (FUN())
 {
     setInterval(QUACKQUACK, Math.ceil(Math.random() * (500000 - 50000) + 500000));
 }
 
-if (CONF())
-{
-    console.log(`\n${turbo.bgWhite.blue(` If you actually pondered on the muting capabilities for a hot sec, you're my new hero ;) `)}\n`);
-}
-
 
 /**
  *
  */
+if (CONF())
+{
+    console.log(`\n${turbo.bgWhite.blue(` Muting screaming kids, dogs barking, the wifey... `)}\n`);
+
+    setInterval(() =>
+    {
+        console.log(`\n${turbo.bgWhite.blue(` If you actually pondered on the muting capabilities for a hot sec, you're my new hero! ;) `)}\n`);
+    },
+    Math.ceil(Math.random() * (500000 - 50000) + 500000));
+}
+
+
+/**
+ * In the words of Super Mario, letsa go waa! :)
+ */
+HMR();
 TOOLING();
 DEV_START();
 BUILD();

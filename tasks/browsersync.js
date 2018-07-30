@@ -3,7 +3,9 @@ import browserSync from 'browser-sync';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfig from '../webpack/webpack.config.babel';
+import webpackConfig from '../webpack/config';
+import proxyMiddleware from 'http-proxy-middleware';
+import fs from 'fs';
 
 export const got_me_goggles = () =>
 {
@@ -21,19 +23,60 @@ export const got_me_goggles = () =>
 
         scrollProportionally: false,
 
+        notify: false,
+
+        logLevel: 'none',
+
+        logFileChanges: false,
+
         callbacks:
         {
             ready: (err, bs) =>
             {
-                const bundler = webpack(webpackConfig);
-
-                bs.addMiddleware('*', webpackDevMiddleware(bundler,
+                if (__HMR__)
                 {
-                    publicPath: webpackConfig.output.publicPath,
-                    stats: { colors: true }
+                    const bundler = webpack(webpackConfig);
+                    const devServerConfig = webpackConfig.devServer;
+
+                    Object.assign(devServerConfig,
+                    {
+                        publicPath: `${process.env.APP_URL}:${bs.options.get('port')}/${devServerConfig.contentBase}`
+                    });
+
+                    /**
+                     *
+                     */
+                    bs.addMiddleware('*', webpackDevMiddleware(bundler, devServerConfig));
+                    bs.addMiddleware('*', webpackHotMiddleware(bundler));
+                }
+
+                const pages = fs.readdirSync(`${process.env.SRC}/pages/`).map(file => `/${file.replace(/\.html/gi, '')}`);
+
+                /**
+                 *
+                 */
+                bs.addMiddleware('*', proxyMiddleware(pages,
+                {
+                    target: `${process.env.APP_URL}:${bs.options.get('port')}`,
+                    logLevel: 'warn',
+
+                    pathRewrite: (path, req) =>
+                    {
+                        return `/pages/${path}.html`;
+                    }
                 }));
 
-                bs.addMiddleware('*', webpackHotMiddleware(bundler));
+
+                /**
+                 *
+                 */
+                if (process.env.MOCK_API_URL !== '')
+                {
+                    bs.addMiddleware('*', proxyMiddleware(process.env.MOCK_API_ROUTE,
+                    {
+                        target: process.env.MOCK_API_URL
+                    }));
+                }
             }
         }
     });

@@ -7,17 +7,17 @@ import { queryStringPattern } from 'helpers/regex';
  *
  * @param query - querystring to parse.
  */
-export const getQueryParams = (query: string) =>
+export const getQueryParams = (query: string) : object =>
 {
     let params: object = {};
 
     query.replace(queryStringPattern,
         // @ts-ignore
-        ($0, $1, $2, $3) =>
+        ($0, key, $1, value) =>
         {
-            const key = $1.toLowerCase();
+            key = key.toLowerCase();
 
-            Object.assign(params, { [key]: decodeURIComponent($3) });
+            Object.assign(params, { [key]: decodeURIComponent(value) });
         });
 
     return params;
@@ -27,7 +27,7 @@ export const getQueryParams = (query: string) =>
  * @param el - DOM element in any valid jQuery form i.e. '#foo' or '.bar' or '[data-baz]' or an actual jQuery object.
  * @returns jQuery object
  */
-export const getInstanceOfjQuery = (el: string | JQuery) =>
+export const getInstanceOfjQuery = (el: string | JQuery) : JQuery =>
 {
     return !(el instanceof jQuery) ? $(el as string) : el as JQuery;
 };

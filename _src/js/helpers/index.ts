@@ -5,7 +5,7 @@ import { getInstanceOfjQuery } from 'helpers/utils';
 /**
  *
  */
-export const renderYear = (el: string | JQuery) =>
+export const renderYear = (el: string | JQuery) : void =>
 {
     const $el = getInstanceOfjQuery(el);
 
@@ -21,7 +21,7 @@ export const renderYear = (el: string | JQuery) =>
  *
  * Reference: https://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
  */
-export const renderSvg = (el: string | JQuery)  =>
+export const renderSvg = (el: string | JQuery) : void =>
 {
     const $el = getInstanceOfjQuery(el);
 
