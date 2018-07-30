@@ -114,4 +114,4 @@ All source code is located in `_src`.
 [dev-dep-url]: https://david-dm.org/jthomas077/home-skillet/?type=dev
 [dep-image]: https://david-dm.org/jthomas077/home-skillet/status.svg
 [dep-url]: https://david-dm.org/jthomas077/home-skillet
-[homeskillet]: _src/toolkit/home-skillet.jpg?raw=true "Home Skillet"
+[homeskillet]: toolkit/home-skillet.jpg?s=200 "Home Skillet"
