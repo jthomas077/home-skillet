@@ -29,11 +29,10 @@ npm rebuild node-sass
 ### DEV
 After NPM installs all required dependencies, navigate to `node_modules/name-that-color/index.js` and modify the  module as follows:
 ```sh
-npm start
-```
 // console.log(chalk.magenta(process.argv[2]) + ' name is ' + chalk.cyan(ntc.name(oneColor(process.argv[2]).hex())[1]));
 
 module.exports = ntc;
+```
 
 Then execute the following command:
 ```sh
