@@ -1,7 +1,10 @@
+# Home Skillet
+
+> Front End Build Toolkit
+
+
 ![homeskillet]
 
-# Home Skillet
-> Front End Build Toolkit
 
 ![homeskillet-badge]
 
@@ -14,9 +17,6 @@
 ![typescript]
 
 ## Getting Started
-
-### Requirements
-* [Node][node-url] - `>= 8.x.x`
 
 ### Install dependencies
 ```sh
@@ -32,7 +32,7 @@ npm rebuild node-sass
 
 -----------------------
 
-### DEV
+## DEV
 After NPM installs all required dependencies, navigate to `node_modules/name-that-color/index.js` and modify the  module as follows:
 ```sh
 // console.log(chalk.magenta(process.argv[2]) + ' name is ' + chalk.cyan(ntc.name(oneColor(process.argv[2]).hex())[1]));
@@ -75,7 +75,7 @@ npm start --hmr --tooling --fun --conf
 
 -----------------------
 
-### Build
+## Build
 ```sh
 npm run build
 ```
@@ -90,24 +90,7 @@ All source code is located in `_src`.
 * Core SASS => `_src/sass`
 * Modules (Javascript/Typescript, SCSS and HTML) => `_src/modules`
 
------------------------
 
-### TODO:
-
-1. Optimize webpack =>
-    1. Hashing for core bundles + injecting hash in `_scripts.html`
-    1. Update dev server / hmr to not auto bundle on start.
-
-1. Improve error handling... `pump`.
-1. Add / update linting.
-1. Add comments.
-
-### LAUNDRY LIST
-1. Create custom jQuery build...
-1. Create version without jQuery dependency... add axios.
-1. Create `name that color` gulp plugin.
-1. Add changed plugin to pipeline in some tasks.
-1. New sass globber for nested imports.
 
 [node-image]: https://img.shields.io/badge/node-%3E%3D%208.x.x-blue.svg?longCache=true&style=flat-square
 [node-url]: https://nodejs.org/en/
