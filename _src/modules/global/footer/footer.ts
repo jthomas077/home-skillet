@@ -4,12 +4,17 @@ import Module from 'core/module';
 
 class Footer extends Module
 {
-    constructor(el: string | JQuery)
+    constructor(el: string | JQuery, opts: object = {})
     {
-        super(el);
+        super(el, opts);
     }
 
     init()
+    {
+
+    }
+
+    render()
     {
 
     }

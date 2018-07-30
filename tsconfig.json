@@ -21,5 +21,18 @@
         ]
     },
 
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
+
+    "awesomeTypescriptLoaderOptions":
+    {
+        "useTranspileModule": true,
+        "useBabel": true,
+        "useCache": true,
+        "cacheDirectory": ".hskcache",
+        "forceIsolatedModules": true,
+        "useWebpackText": true,
+        "doTypeCheck": true,
+        "forkChecker": true,
+        "ignoreDiagnostics": [2339]
+    }
 }

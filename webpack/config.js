@@ -57,7 +57,11 @@ export default
         [
             {
                 test: /\.ts?$/,
-                loader: 'happypack/loader'
+                loader: 'awesome-typescript-loader',
+                options:
+                {
+                    reportFiles : [`${process.env.SRC}/{js,modules}/**/*.ts`]
+                }
             }
         ]
     },

@@ -1,7 +1,6 @@
 
 import webpack from 'webpack';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import HappyPack from 'happypack';
+import { CheckerPlugin } from 'awesome-typescript-loader';
 
 export const plugins = () =>
 {
@@ -21,26 +20,8 @@ export const plugins = () =>
         }),
 
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.NamedModulesPlugin(),
 
-        new ForkTsCheckerWebpackPlugin(
-        {
-            workers: parseInt(process.env.PROCESSOR_LEVEL, 10) / 2,
-            checkSyntacticErrors: true
-        }),
-
-        new HappyPack(
-        {
-            threads: 4,
-            loaders:
-            [{
-                loader: 'ts-loader',
-                options:
-                {
-                    happyPackMode: true
-                }
-            }]
-        })
+        new CheckerPlugin()
     ];
 
     if (__HMR__)

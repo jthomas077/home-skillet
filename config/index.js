@@ -118,7 +118,7 @@ const msgs =
     {
         msg: 'HMR Enabled',
         visual: turbo.bgBlue.white,
-        notify: true,
+        notify: false,
         icon: './toolkit/speedyg.png',
         rule: __HMR__ && __DEV__
     },

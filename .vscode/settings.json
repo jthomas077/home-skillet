@@ -4,9 +4,13 @@
     "telemetry.enableCrashReporter": false,
     "csscomb.preset": "./.csscomb.json",
     "csscomb.formatOnSave": true,
-    "typescript.tsc.autoDetect": "off",
     "jake.autoDetect": "off",
     "grunt.autoDetect": "off",
     "gulp.autoDetect": "off",
-    "problems.decorations.enabled": false
+    "problems.decorations.enabled": false,
+    "typescript.tsc.autoDetect": "off",
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "typescript.validate.enable": false
 }
