@@ -33,19 +33,10 @@ abstract class Module
         this.bindEventListeners();
     }
 
-    /**
-     * @abstract
-     */
     abstract init() : void;
 
-    /**
-     * @abstract
-     */
     abstract render() : void;
 
-    /**
-     * @abstract
-     */
     abstract bindEventListeners() : void;
 }
 

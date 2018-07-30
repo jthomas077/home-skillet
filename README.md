@@ -5,11 +5,13 @@
 
 ![homeskillet-badge]
 
-[![npm][npm-image]]()
+[![Node][node-image]][node-url] [![npm][npm-image]]()
 
 [![Dependency Status][dep-image]][dep-url] [![devDependency Status][dev-dep-image]][dev-dep-url]
 
 [![MIT][mit-image]][mit-url]
+
+![typescript]
 
 ## Getting Started
 
@@ -107,6 +109,7 @@ All source code is located in `_src`.
 1. Add changed plugin to pipeline in some tasks.
 1. New sass globber for nested imports.
 
+[node-image]: https://img.shields.io/badge/node-%3E%3D%208.x.x-blue.svg?longCache=true&style=flat-square
 [node-url]: https://nodejs.org/en/
 [npm-url]: https://www.npmjs.com/
 [npm-image]: https://img.shields.io/npm/v/npm.svg
@@ -117,4 +120,5 @@ All source code is located in `_src`.
 [dep-image]: https://david-dm.org/jthomas077/home-skillet/status.svg
 [dep-url]: https://david-dm.org/jthomas077/home-skillet
 [homeskillet]: toolkit/home-skillet.jpg?raw=true&s=150 "Home Skillet"
-[homeskillet-badge]: https://img.shields.io/badge/home%20skillet-sexy-blue.svg "Home Skillet"
+[homeskillet-badge]: https://img.shields.io/badge/home%20skillet-sexy-blue.svg?longCache=true&style=flat-square "Home Skillet"
+[typescript]: https://img.shields.io/badge/type%20definitions-TypeScript%202.9.2-blue.svg?longCache=true&style=flat-square "TypeScript"
