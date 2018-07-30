@@ -27,7 +27,15 @@ npm rebuild node-sass
 -----------------------
 
 ### DEV
-After NPM installs all required dependencies, execute the following command:
+After NPM installs all required dependencies, navigate to `node_modules/name-that-color/index.js` and modify the  module as follows:
+```sh
+npm start
+```
+// console.log(chalk.magenta(process.argv[2]) + ' name is ' + chalk.cyan(ntc.name(oneColor(process.argv[2]).hex())[1]));
+
+module.exports = ntc;
+
+Then execute the following command:
 ```sh
 npm start
 ```
@@ -61,7 +69,6 @@ All source code is located in `_src`.
 1. Improve error handling... `pump`.
 1. Add / update linting.
 1. Add comments.
-1. Add readme instructions.
 
 ### LAUNDRY LIST
 1. Create custom jQuery build...
