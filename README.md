@@ -99,7 +99,7 @@ All source code is located in `_src`.
 ### LAUNDRY LIST
 1. Create custom jQuery build...
 1. Create version without jQuery dependency... add axios.
-1. Create `name that color` gulp plugin and submit PR to original author of `name that color` to include `module.exports = ntc;`
+1. Create `name that color` gulp plugin.
 1. Add changed plugin to pipeline in some tasks.
 1. New sass globber for nested imports.
 
