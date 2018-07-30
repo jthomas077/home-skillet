@@ -115,3 +115,4 @@ All source code is located in `_src`.
 [dep-image]: https://david-dm.org/jthomas077/home-skillet/status.svg
 [dep-url]: https://david-dm.org/jthomas077/home-skillet
 [homeskillet]: toolkit/home-skillet.jpg?raw=true&s=150 "Home Skillet"
+[homeskillet-badge]: https://img.shields.io/badge/home%20skillet-sexy-blue.svg "Home Skillet"
