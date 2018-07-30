@@ -63,3 +63,9 @@ All source code is located in `_src`.
 1. Create `name that color` gulp plugin and submit PR to original author of `name that color` to include `module.exports = ntc;`
 1. Add changed plugin to pipeline in some tasks.
 1. New sass globber for nested imports.
+
+[node-url]: https://nodejs.org/en/
+[npm-url]: https://www.npmjs.com/
+[npm-image]: https://img.shields.io/npm/v/npm.svg
+[mit-image]: https://img.shields.io/github/license/mashape/apistatus.svg
+[mit-url]: https://github.com/jthomas077/home-skillet/blob/master/LICENSE
