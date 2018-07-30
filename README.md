@@ -1,9 +1,9 @@
-![homeskillet-badge]
+![homeskillet]
 
 # Home Skillet
 > Front End Build Toolkit
 
-[homeskillet]
+![homeskillet-badge]
 
 [![npm][npm-image]]()
 
