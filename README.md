@@ -1,4 +1,4 @@
-[![homeskillet]]
+[![homeskillet-badge]]
 
 # Home Skillet
 > Front End Build Toolkit
