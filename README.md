@@ -69,3 +69,7 @@ All source code is located in `_src`.
 [npm-image]: https://img.shields.io/npm/v/npm.svg
 [mit-image]: https://img.shields.io/github/license/mashape/apistatus.svg
 [mit-url]: https://github.com/jthomas077/home-skillet/blob/master/LICENSE
+[dev-dep-image]: https://david-dm.org/jthomas077/home-skillet/dev-status.svg
+[dev-dep-url]: https://david-dm.org/jthomas077/home-skillet/?type=dev
+[dep-image]: https://david-dm.org/jthomas077/home-skillet/status.svg
+[dep-url]: https://david-dm.org/jthomas077/home-skillet
