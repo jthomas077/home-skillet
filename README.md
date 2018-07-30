@@ -3,6 +3,8 @@
 # Home Skillet
 > Front End Build Toolkit
 
+[homeskillet-badge]
+
 [![npm][npm-image]]()
 
 [![Dependency Status][dep-image]][dep-url] [![devDependency Status][dev-dep-image]][dev-dep-url]
