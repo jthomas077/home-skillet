@@ -1,7 +1,7 @@
+![homeskillet]
+
 # Home Skillet
 > Front End Build Toolkit
-
-[![homeskillet]]
 
 [![npm][npm-image]]()
 
