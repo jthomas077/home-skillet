@@ -18,6 +18,12 @@ npm i
 ```
 This will install all required `dependencies` and `devDependencies` defined in `package.json`.
 
+#### node-sass
+If you get any errors related to `node-sass`, execute the following:
+```sh
+npm rebuild node-sass
+```
+
 -----------------------
 
 ### DEV
