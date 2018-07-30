@@ -53,7 +53,8 @@
     "build": "cross-env NODE_ENV=production gulp build",
     "tooling": "gulp --tooling",
     "fun": "gulp --fun",
-    "conf": "gulp --conf"
+    "conf": "gulp --conf",
+    "hmr": "gulp --hmr"
   },
   "author": "jawsh",
   "license": "MIT"
