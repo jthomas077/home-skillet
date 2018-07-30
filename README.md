@@ -40,6 +40,33 @@ npm start
 ```
 This will compile the project into `_dev`, launch your browser and watch for changes in `_src`.
 
+The toolkit has options to launch in different modes:
+
+#### HMR Mode - Hot Module Replacement
+```sh
+npm run hmr
+```
+
+#### Tooling Mode
+```sh
+npm run tooling
+```
+
+#### Fun Mode :)
+```sh
+npm run fun
+```
+
+#### Conf Mode
+```sh
+npm run conf
+```
+
+You can also chain these modes:
+```sh
+npm start --hmr --tooling --fun --conf
+```
+
 -----------------------
 
 ### Build
