@@ -15,4 +15,4 @@
 1. Create custom jQuery build...
 1. Create version without jQuery dependency... add axios. 
 1. Add api endpoint structure.
-1. Add directory of pages with branding options.
+1. Add readme instructions.
