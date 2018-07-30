@@ -1,13 +1,13 @@
 # Home Skillet
 > Front End Build Toolkit
 
+[![homeskillet]]
+
 [![npm][npm-image]]()
 
 [![Dependency Status][dep-image]][dep-url] [![devDependency Status][dev-dep-image]][dev-dep-url]
 
 [![MIT][mit-image]][mit-url]
-
-[![homeskillet]]
 
 ## Getting Started
 
@@ -114,4 +114,4 @@ All source code is located in `_src`.
 [dev-dep-url]: https://david-dm.org/jthomas077/home-skillet/?type=dev
 [dep-image]: https://david-dm.org/jthomas077/home-skillet/status.svg
 [dep-url]: https://david-dm.org/jthomas077/home-skillet
-[homeskillet]: toolkit/home-skillet.jpg?s=200 "Home Skillet"
+[homeskillet]: toolkit/home-skillet.jpg?raw=true&s=150 "Home Skillet"
