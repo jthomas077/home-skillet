@@ -30,7 +30,7 @@ This will install all required `dependencies` and `devDependencies` defined in `
 
 <br />
 
-## DEV
+### DEV
 After NPM installs all required dependencies, navigate to `node_modules/name-that-color/index.js` and modify the module as follows:
 
 ```sh
@@ -59,7 +59,7 @@ This will compile the project into `_dev`, launch your browser and watch for cha
 
 The toolkit has options to launch in different modes:
 
-> HMR Mode - Hot Module Replacement
+> __HMR Mode - Hot Module Replacement__
 
 ```sh
 npm run hmr
@@ -68,15 +68,17 @@ npm run hmr
 
 <br />
 
-> Tooling Mode
+> __Tooling Mode__
 
 ```sh
 npm run tooling
 ```
 
+*While you can run HMR and Tooling modes together, HMR is only for `_src` development.*
+
 <br />
 
-> Fun Mode :)
+> __Fun Mode__ :)
 
 ```sh
 npm run fun
@@ -84,7 +86,7 @@ npm run fun
 
 <br />
 
-> Conf Mode
+> __Conf Mode__
 
 ```sh
 npm run conf
