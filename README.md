@@ -86,7 +86,7 @@ npm run fun
 
 <br />
 
-> __Conf Mode__
+> __Conf Mode *Shush!*__
 
 ```sh
 npm run conf

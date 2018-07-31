@@ -3,8 +3,9 @@
 import { getInstanceOfjQuery } from 'helpers/utils';
 
 /**
- * Renders the current year on each element matching the `el` parameter
- * @param {string|JQuery} el - DOM element in any valid jQuery form i.e. '#foo' or '.bar' or '[data-baz]' or an actual jQuery object.
+ * Renders the current year on each element matching the `el` parameter.
+ *
+ * @param {string|JQuery} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
  */
 export const renderYear = (el: string | JQuery) : void =>
 {
@@ -18,9 +19,9 @@ export const renderYear = (el: string | JQuery) : void =>
 /**
  * Initializes inline SVG's
  *
- * @param el - DOM element in any valid jQuery form i.e. '#foo' or '.bar' or '[data-baz]' or an actual jQuery object.
- *
  * Reference: https://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
+ *
+ * @param {string|JQuery} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
  */
 export const renderSvg = (el: string | JQuery) : void =>
 {

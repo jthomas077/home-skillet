@@ -6,7 +6,7 @@ import { queryStringPattern } from 'helpers/regex';
  * Parses a query string
  *
  * @param {string} query Querystring to parse.
- * @returns {jQuery} JQuery object
+ * @returns {object} key-value object
  */
 export const getQueryParams = (query: string) : object =>
 {
@@ -14,7 +14,7 @@ export const getQueryParams = (query: string) : object =>
 
     query.replace(queryStringPattern,
         // @ts-ignore
-        ($0, key, $1, value) =>
+        ($0, key: string, $1, value: string) =>
         {
             key = key.toLowerCase();
 

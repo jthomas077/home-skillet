@@ -37,7 +37,7 @@ export async function importModules (imports: string | Array<string>, el: string
 /**
 * Initializes the module(s)
 *
-* @param {string} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
+* @param {string|JQuery} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
 * @param {Function} target - Callback
 */
 export const initModules = (el: string | JQuery, target: Function) : void =>
