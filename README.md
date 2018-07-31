@@ -46,6 +46,10 @@ else
 
 <br />
 
+Next, create `.env` file using `.env.example` as well, an example lol.
+
+<br />
+
 Then execute the following command:
 ```sh
 npm start
