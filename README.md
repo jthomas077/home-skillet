@@ -31,12 +31,17 @@ This will install all required `dependencies` and `devDependencies` defined in `
 <br />
 
 ## DEV
-After NPM installs all required dependencies, navigate to `node_modules/name-that-color/index.js` and modify the  module as follows:
+After NPM installs all required dependencies, navigate to `node_modules/name-that-color/index.js` and modify the module as follows:
 
 ```sh
-// console.log(chalk.magenta(process.argv[2]) + ' name is ' + chalk.cyan(ntc.name(oneColor(process.argv[2]).hex())[1]));
-
-module.exports = ntc;
+if (require.main === module)
+{
+    console.log(chalk.magenta(process.argv[2]) + ' name is ' + chalk.cyan(ntc.name(oneColor(process.argv[2]).hex())[1]));
+}
+else
+{
+    module.exports = ntc;
+}
 ```
 
 <br />
@@ -59,7 +64,7 @@ The toolkit has options to launch in different modes:
 ```sh
 npm run hmr
 ```
-*NOTE*: Not available when running a build.
+*Not available when running a build.*
 
 <br />
 
