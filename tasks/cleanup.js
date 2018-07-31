@@ -12,7 +12,7 @@ export const bagit_n_tagit = () =>
             .then(deleted =>
             {
                 deleted.forEach(purged =>
-                    console.log(`${turbo.green(`    Purged =>`)}`, `${purged.replace(path.resolve(process.env.DEV), '').replace(/\\/g, '/')}`));
+                    console.log(`${turbo.green(`    Purged =>`)}`, `${purged.replace(path.resolve(process.env.DEST), '').replace(/\\/g, '/')}`));
             })
             .catch(console.error);
 };
