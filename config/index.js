@@ -6,7 +6,7 @@ import notifier from 'node-notifier';
 import gulpConfig from '../config/gulp';
 
 /**
- *
+ * Load .env variables into `process.env`
  */
 dotenvExpand(
     dotenvExtended.load(
@@ -18,11 +18,14 @@ dotenvExpand(
 
 
 /**
- *
+ * Filter args for our --flags
  */
 const args = process.argv.filter(x => x.startsWith('--'));
 
-const consts =
+/**
+ * Define our global constants
+ */
+const globalConstants =
 {
     /**
      * Check to see if we are in development mode.
@@ -56,27 +59,27 @@ const consts =
 };
 
 /**
- *
+ * Set our global constants
  */
-Object.keys(consts).forEach(key => global[key] = consts[key]);
+Object.keys(globalConstants).forEach(key => global[key] = globalConstants[key]);
 
 
 /**
- *
+ * Set the target destination where we'll compile our code too
  */
 process.env.DEST = (__DEV__) ? process.env.DEV : process.env.BUILD;
 
 
 /**
- *
+ * If fun module is enabled, get the fun task name; otherwise, return the normal task name
  */
 global.GULP_TASK = (taskName) => (__FUN__) ? gulpConfig[taskName] : taskName;
 
 
 /**
- *
+ * Define our global msg objects
  */
-const msgs =
+const globalMsgs =
 {
     DEV_START:
     {
@@ -159,9 +162,9 @@ const msgs =
 };
 
 /**
- *
+ * Set our global msgs
  */
-Object.entries(msgs).forEach(([msg, config]) =>
+Object.entries(globalMsgs).forEach(([msg, config]) =>
 {
     global[msg] = (quackers = config.rule) =>
     {
@@ -182,7 +185,7 @@ Object.entries(msgs).forEach(([msg, config]) =>
 
 
 /**
- *
+ * Notify and console our global msgs
  */
 global.QUACK = (msg, visual, notify = false, icon) =>
 {
@@ -204,7 +207,7 @@ global.QUACK = (msg, visual, notify = false, icon) =>
 };
 
 /**
- *
+ * For fun... :)
  */
 global.QUACKQUACK = (quack = __FUN__) =>
 {
@@ -221,7 +224,7 @@ global.QUACKQUACK = (quack = __FUN__) =>
 
 
 /**
- *
+ * For fun... :)
  */
 if (FUN())
 {
@@ -230,7 +233,7 @@ if (FUN())
 
 
 /**
- *
+ * For fun... :)
  */
 if (CONF())
 {

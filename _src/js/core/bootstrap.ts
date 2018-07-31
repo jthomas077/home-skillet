@@ -3,12 +3,12 @@
 import { getInstanceOfjQuery } from 'helpers/utils';
 
 /**
-    Imports module(s).
-
-    @param {string|Array} imports - Modules to import.
-    @param {string} element - DOM element in any valid jQuery form i.e. '#foo' or '.bar' or '[data-baz]' or an actual jQuery object.
+* Imports module(s).
+*
+*  @param {string|Array<string>} imports Modules to import.
+*  @param {string} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
 */
-export async function importModules (imports: string | Array<string>, element: string | JQuery) : Promise<string[]>
+export async function importModules (imports: string | Array<string>, el: string | JQuery) : Promise<string[]>
 {
     if (!imports.length)
     {
@@ -23,7 +23,7 @@ export async function importModules (imports: string | Array<string>, element: s
             await import(`../../modules/${m}.ts`)
                 .then(({ default: module }) =>
                 {
-                    initModules(element, (target: string) => new module(target))
+                    initModules(el, (target: string) => new module(target))
                 })
                 .catch(err =>
                 {
@@ -35,14 +35,14 @@ export async function importModules (imports: string | Array<string>, element: s
 };
 
 /**
-      Initializes the module(s)
-
-      @param {string} element - DOM element in any valid jQuery form i.e. '#foo' or '.bar' or '[data-baz]' or an actual jQuery object.
-      @param {Function} target - Callback
+* Initializes the module(s)
+*
+* @param {string} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
+* @param {Function} target - Callback
 */
-export const initModules = (element: string | JQuery, target: Function) : void =>
+export const initModules = (el: string | JQuery, target: Function) : void =>
 {
-    const elements = getInstanceOfjQuery(element);
+    const elements = getInstanceOfjQuery(el);
 
     if (!elements.length)
     {
@@ -57,7 +57,7 @@ export const initModules = (element: string | JQuery, target: Function) : void =
 
 
 /**
- * Discovers modules from the DOM tree on elements that have `data-module` specified.
+ * Discovers modules from the DOM on elements that have `data-module` specified.
  */
 export const discoverModules = () : void =>
 {

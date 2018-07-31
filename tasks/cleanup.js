@@ -2,6 +2,7 @@
 import empty from 'delete-empty';
 import cleaner from 'del';
 import path from 'path';
+import turbo from 'turbocolor';
 
 export const bagit_n_tagit = () =>
 {
@@ -11,7 +12,7 @@ export const bagit_n_tagit = () =>
             .then(deleted =>
             {
                 deleted.forEach(purged =>
-                    console.log('       purged =>', purged.replace(path.resolve(process.env.DEV), '').replace(/\\/g, '/')));
+                    console.log(`${turbo.green(`    Purged =>`)}`, `${purged.replace(path.resolve(process.env.DEV), '').replace(/\\/g, '/')}`));
             })
             .catch(console.error);
 };

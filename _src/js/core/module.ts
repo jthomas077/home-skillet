@@ -3,7 +3,7 @@
 import { getInstanceOfjQuery } from 'helpers/utils';
 
 /**
- *
+ * Abstract Module class in which all modules inherit from
  */
 abstract class Module
 {
@@ -14,8 +14,8 @@ abstract class Module
    /**
      * Module constructor
      *
-     * @param {string|JQuery} el - Main DOM element in any valid jQuery form i.e. '#foo' or '.bar' or '[data-baz]' or an actual jQuery object.
-     * @param {Object} [opts={}] - Module options.
+     * @param {string|JQuery} el Main DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
+     * @param {Object} [opts={}] Module options.
     */
     protected constructor(el: string | JQuery, opts: object = {})
     {

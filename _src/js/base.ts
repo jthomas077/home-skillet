@@ -4,18 +4,10 @@ import { init } from 'core/init';
 
 $(() =>
 {
-    /**
-     *
-     */
     init();
 
-
-    /**
-     *
-     */
-    if (__HMR__)
+    if (__HMR__ && module.hot)
     {
-        // @ts-ignore
-        if (module.hot) module.hot.accept();
+        module.hot.accept();
     }
 });

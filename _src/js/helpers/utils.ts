@@ -5,7 +5,8 @@ import { queryStringPattern } from 'helpers/regex';
 /**
  * Parses a query string
  *
- * @param query - querystring to parse.
+ * @param {string} query Querystring to parse.
+ * @returns {jQuery} JQuery object
  */
 export const getQueryParams = (query: string) : object =>
 {
@@ -24,8 +25,10 @@ export const getQueryParams = (query: string) : object =>
 };
 
 /**
- * @param el - DOM element in any valid jQuery form i.e. '#foo' or '.bar' or '[data-baz]' or an actual jQuery object.
- * @returns jQuery object
+ * Determines if the element is an instance of jQuery or gets a jQuery instance
+ *
+ * @param {string|JQuery} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
+ * @returns {jQuery} - JQuery object
  */
 export const getInstanceOfjQuery = (el: string | JQuery) : JQuery =>
 {

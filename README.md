@@ -14,7 +14,9 @@
 
 [![MIT][mit-image]][mit-url]
 
-![typescript]
+[![typescript]][typescript-url]
+
+<br />
 
 ## Getting Started
 
@@ -125,3 +127,4 @@ All source code is located in `_src`.
 [homeskillet]: toolkit/home-skillet.jpg?raw=true&s=150 "Home Skillet"
 [homeskillet-badge]: https://img.shields.io/badge/home%20skillet-sexy-blue.svg?longCache=true&style=flat-square "Home Skillet"
 [typescript]: https://img.shields.io/badge/type%20definitions-TypeScript%202.9.2-blue.svg?longCache=true&style=flat-square "TypeScript"
+[typescript-url]: https://www.typescriptlang.org/

@@ -53,7 +53,9 @@ export const got_me_goggles = () =>
                 const pages = fs.readdirSync(`${process.env.SRC}/pages/`).map(file => `/${file.replace(/\.html/gi, '')}`);
 
                 /**
-                 *
+                 * Add a proxy for local requests.
+                 * Instead of using a `directory` page of pages or links such as `/pages/my-awesome-page.html`,
+                 * we can keep links proper such as `/my-awesome-page`
                  */
                 bs.addMiddleware('*', proxyMiddleware(pages,
                 {
@@ -68,7 +70,7 @@ export const got_me_goggles = () =>
 
 
                 /**
-                 *
+                 * Add a proxy for API requests.
                  */
                 if (process.env.MOCK_API_URL !== '')
                 {
@@ -81,5 +83,5 @@ export const got_me_goggles = () =>
         }
     });
 
-    return new Promise((resolve) => { resolve(); });
+    return Promise.resolve();
 };

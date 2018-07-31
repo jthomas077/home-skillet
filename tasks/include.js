@@ -11,7 +11,11 @@ export const cool_kat = () =>
             .pipe(fileInclude(
             {
                 prefix: '##',
-                basepath: process.env.SRC
+                basepath: process.env.SRC,
+                context:
+                {
+                    titlePrefix: process.env.APP_NAME
+                }
             }))
             .pipe(plumber.stop())
             .pipe(dest(process.env.DEST))

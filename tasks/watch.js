@@ -13,5 +13,5 @@ export const stalk_me = series(GULP_TASK('browsersync'), () =>
         watch([`${process.env.SRC}/**/*.ts`], series(GULP_TASK('js')));
     }
 
-    return new Promise((resolve) => { resolve(); });
+    return Promise.resolve();
 });

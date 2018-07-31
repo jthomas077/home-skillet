@@ -3,7 +3,8 @@
 import { getInstanceOfjQuery } from 'helpers/utils';
 
 /**
- *
+ * Renders the current year on each element matching the `el` parameter
+ * @param {string|JQuery} el - DOM element in any valid jQuery form i.e. '#foo' or '.bar' or '[data-baz]' or an actual jQuery object.
  */
 export const renderYear = (el: string | JQuery) : void =>
 {

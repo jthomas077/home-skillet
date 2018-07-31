@@ -3,6 +3,7 @@ import { src, dest } from 'gulp';
 import plumber from 'gulp-plumber';
 import color from 'name-that-color';
 import inject from 'gulp-inject';
+import turbo from 'turbocolor';
 import browserSync from 'browser-sync';
 
 export const color_me_silly = () =>
@@ -34,7 +35,7 @@ export const color_me_silly = () =>
                         {
                             if (__DEV__)
                             {
-                                console.log('   Colors Transformed =>', color_me.reverse());
+                                console.log(`${turbo.green(`    Colors Transformed =>`)}`, color_me.reverse());
                             }
 
                             colors.push(`$${color_name}: ${hex};${(!color_exact) ? ` // approx match => ${color_hex}` : ''}`);
@@ -43,7 +44,7 @@ export const color_me_silly = () =>
                         {
                             if (__DEV__)
                             {
-                                console.log('   Colors NOT Transformed =>', color_me.reverse());
+                                console.log(`${turbo.yellow(`    Colors NOT Transformed =>`)}`, color_me.reverse());
                             }
 
                             colors.push(`// ${hex} => Invalid Color`);
