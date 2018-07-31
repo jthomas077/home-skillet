@@ -18,76 +18,90 @@
 
 ## Getting Started
 
-> ### Install Dependencies
+### Install Dependencies
+
 ```sh
 npm i
 ```
+
 This will install all required `dependencies` and `devDependencies` defined in `package.json`.
 
------------------------
+<br />
 
 ## DEV
 After NPM installs all required dependencies, navigate to `node_modules/name-that-color/index.js` and modify the  module as follows:
+
 ```sh
 // console.log(chalk.magenta(process.argv[2]) + ' name is ' + chalk.cyan(ntc.name(oneColor(process.argv[2]).hex())[1]));
 
 module.exports = ntc;
 ```
 
+<br />
+
 Then execute the following command:
 ```sh
 npm start
 ```
+
 This will compile the project into `_dev`, launch your browser and watch for changes in `_src`.
+
+<br />
+
+### Modes
 
 The toolkit has options to launch in different modes:
 
-#### HMR Mode - Hot Module Replacement
-
->
+> HMR Mode - Hot Module Replacement
 
 ```sh
 npm run hmr
 ```
+*NOTE*: Not available when running a build.
 
-#### Tooling Mode
+<br />
 
->
+> Tooling Mode
 
 ```sh
 npm run tooling
 ```
 
-#### Fun Mode :)
+<br />
 
->
+> Fun Mode :)
 
 ```sh
 npm run fun
 ```
 
-#### Conf Mode
+<br />
 
->
+> Conf Mode
 
 ```sh
 npm run conf
 ```
 
+<br />
+
 You can also chain these modes:
+
 ```sh
 npm start --hmr --tooling --fun --conf
 ```
 
------------------------
+<br />
 
 ## Build
+To run a production build, execute the following command:
+
 ```sh
 npm run build
 ```
 This will compile and minify the project into `_build`.
 
------------------------
+<br />
 
 ## Source code
 All source code is located in `_src`.
