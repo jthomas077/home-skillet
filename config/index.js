@@ -53,7 +53,7 @@ const globalConstants =
     /**
      * Check for a request to enable conf mode.
      * If you're on a conf call, enable this to disable the notifier beep. lol.
-     * Also disables the conf call round robin by muting background noise. i.e. screaming kids, dogs barking, wifey ...
+     * Also disables the conf call round robin by muting background noise. i.e. screaming kids, dogs barking, the wifey ...
      */
     __CONF__: args.includes('--conf')
 };
@@ -239,18 +239,9 @@ if (CONF())
 {
     console.log(`\n${turbo.bgWhite.blue(` Muting screaming kids, dogs barking, the wifey... `)}\n`);
 
-    setInterval(() =>
+    setTimeout(() =>
     {
         console.log(`\n${turbo.bgWhite.blue(` If you actually pondered on the muting capabilities for a hot sec, you're my new hero! ;) `)}\n`);
     },
     Math.ceil(Math.random() * (500000 - 50000) + 500000));
 }
-
-
-/**
- * In the words of Super Mario, letsa go waa! :)
- */
-HMR();
-TOOLING();
-DEV_START();
-BUILD();

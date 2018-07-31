@@ -68,7 +68,7 @@ export default
 
     plugins: config.plugins(),
 
-    mode: process.env.NODE_ENV,
+    mode: (__DEV__) ? 'development' : process.env.NODE_ENV,
 
     devtool: 'source-map',
 

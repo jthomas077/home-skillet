@@ -46,7 +46,7 @@ else
 
 <br />
 
-Next, create `.env` file using `.env.example` as well, an example lol.
+Next, create an `.env` file using `.env.example` as well, an example lol.
 
 <br />
 
@@ -68,7 +68,7 @@ The toolkit has options to launch in different modes:
 ```sh
 npm run hmr
 ```
-*Not available when running a build.*
+*Ignored when running a build.*
 
 <br />
 
