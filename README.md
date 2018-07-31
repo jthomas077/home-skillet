@@ -18,17 +18,11 @@
 
 ## Getting Started
 
-### Install dependencies
+> ### Install Dependencies
 ```sh
 npm i
 ```
 This will install all required `dependencies` and `devDependencies` defined in `package.json`.
-
-#### node-sass
-If you get any errors related to `node-sass`, execute the following:
-```sh
-npm rebuild node-sass
-```
 
 -----------------------
 
@@ -49,21 +43,33 @@ This will compile the project into `_dev`, launch your browser and watch for cha
 The toolkit has options to launch in different modes:
 
 #### HMR Mode - Hot Module Replacement
+
+>
+
 ```sh
 npm run hmr
 ```
 
 #### Tooling Mode
+
+>
+
 ```sh
 npm run tooling
 ```
 
 #### Fun Mode :)
+
+>
+
 ```sh
 npm run fun
 ```
 
 #### Conf Mode
+
+>
+
 ```sh
 npm run conf
 ```
@@ -95,8 +101,8 @@ All source code is located in `_src`.
 [node-image]: https://img.shields.io/badge/node-%3E%3D%208.x.x-blue.svg?longCache=true&style=flat-square
 [node-url]: https://nodejs.org/en/
 [npm-url]: https://www.npmjs.com/
-[npm-image]: https://img.shields.io/npm/v/npm.svg
-[mit-image]: https://img.shields.io/github/license/mashape/apistatus.svg
+[npm-image]: https://img.shields.io/badge/npm-%3E%3D%205.x.x-blue.svg?longCache=true&style=flat-square
+[mit-image]: https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=flat-square
 [mit-url]: https://github.com/jthomas077/home-skillet/blob/master/LICENSE
 [dev-dep-image]: https://david-dm.org/jthomas077/home-skillet/dev-status.svg
 [dev-dep-url]: https://david-dm.org/jthomas077/home-skillet/?type=dev
