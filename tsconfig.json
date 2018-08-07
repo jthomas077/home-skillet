@@ -33,6 +33,6 @@
         "useWebpackText": true,
         "doTypeCheck": true,
         "forkChecker": true,
-        "ignoreDiagnostics": [2339]
+        "ignoreDiagnostics": [1135, 2339]
     }
 }

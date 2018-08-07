@@ -9,7 +9,7 @@ export const plugins = () =>
         new webpack.DefinePlugin(
         {
             __DEV__: __DEV__,
-            __HMR__: __HMR__,
+            __HMR__: __HMR__
         }),
 
         new webpack.ProvidePlugin(

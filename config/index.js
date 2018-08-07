@@ -245,3 +245,12 @@ if (CONF())
     },
     Math.ceil(Math.random() * (500000 - 50000) + 500000));
 }
+
+
+/**
+ * In the words of Super Mario, letsa go waa! :)
+ */
+HMR();
+TOOLING();
+DEV_START();
+BUILD();

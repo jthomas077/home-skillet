@@ -2,7 +2,8 @@
 // "warn" or 1 - turn the rule on as a warning (doesn’t affect exit code)
 // "error" or 2 - turn the rule on as an error (exit code is 1 when triggered)
 
-module.exports = {
+module.exports =
+{
     parser: 'babel-eslint',
     parserOptions:
     {
@@ -10,11 +11,8 @@ module.exports = {
         allowImportExportEverywhere: true,
         codeFrame: false
     },
-    rules: {
-      ///////
-      // BEST PRACTICES
-      // These rules relate to better ways of doing things to help you avoid problems:
-      ///////
+    rules:
+    {
       // always check for ===
       'eqeqeq': 2,
       // disallow with statements
@@ -52,7 +50,7 @@ module.exports = {
       // disallow unnecessary semicolons
       'no-extra-semi': 2,
       // allow debugger; only in development mode
-      'no-debugger': process.env.NODE_ENV === 'PRODUCTION' ? 2 : 0,
+      'no-debugger': (__DEV__) ? 2 : 0,
       // allow console
       'no-console': 0,
       // disallow assignment operators in conditional expressions
@@ -90,11 +88,11 @@ module.exports = {
       // require parentheses around arrow function arguments as needed
       'arrow-parens': [2, 'as-needed'],
       // enforce spacing before and after the arrow in arrow functions
-      'arrow-spacing': [2, {
+      'arrow-spacing': [2,
+        {
         'before': true,
         'after': true
-      }
-      ],
+      }],
       // require method and property shorthand syntax for object literals
       'object-shorthand': [2, 'always'],
       // require template literals instead of string concatenation
@@ -112,11 +110,11 @@ module.exports = {
       // check for indent with 4 spaces
       "indent": [4, 4],
       // enforce consistent spacing before and after semicolons
-      'semi-spacing': [2, {
+      'semi-spacing': [2,
+        {
         'before': false,
         'after': true
-      }
-      ],
+      }],
       // enforce consistent spacing before and after keywords
       'keyword-spacing': [
         'error', {
@@ -193,7 +191,7 @@ module.exports = {
       'func-call-spacing': [2, 'always'],
       // turn off spaced comment rule
       'spaced-comment': 0,
-      // require quotes around object literal property ass needed
+      // require quotes around object literal property as needed
       'quote-props': [2, 'as-needed', {
         'keywords': true
       }
@@ -215,6 +213,7 @@ module.exports = {
       'process': true,
       'WeakMap': true,
       '__DEV__': true,
+      '__HMR__': true,
       'document': true,
       'navigator': true,
       'location': true,

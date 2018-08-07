@@ -12,5 +12,6 @@
     "typescript.tsdk": "node_modules\\typescript\\lib",
     "typescript.referencesCodeLens.enabled": true,
     "typescript.implementationsCodeLens.enabled": true,
-    "typescript.validate.enable": false
+    "typescript.validate.enable": false,
+    "git.autofetch": true
 }

@@ -8,7 +8,7 @@
 
 ![homeskillet-badge]
 
-[![Node][node-image]][node-url] [![npm][npm-image]]()
+[![Node][node-image]][node-url] [![npm][npm-image]][npm-url]
 
 [![Dependency Status][dep-image]][dep-url] [![devDependency Status][dev-dep-image]][dev-dep-url]
 
@@ -46,7 +46,7 @@ else
 
 <br />
 
-Next, create an `.env` file using `.env.example` as well, an example lol.
+Next, create an `.env` file using `.env.example` as, well, an example lol.
 
 <br />
 
@@ -96,13 +96,6 @@ npm run fun
 npm run conf
 ```
 
-<br />
-
-You can also chain these modes:
-
-```sh
-npm start --hmr --tooling --fun --conf
-```
 
 <br />
 
