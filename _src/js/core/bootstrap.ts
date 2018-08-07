@@ -68,3 +68,31 @@ export const discoverModules = () : void =>
         importModules($el.data('module').toLowerCase(), $el);
     });
 };
+
+
+/**
+ * Gets all DOM elements to cache in modules.
+ * If a DOM element contains `[data-cache]`, the DOM element will be excluded from caching.
+ *
+ * @param {string|JQuery} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
+ * @returns {object} object
+ */
+export const getCachableDomElements = (el: string | JQuery) : object =>
+{
+    let cachableDomEls = {};
+
+    el = getInstanceOfjQuery(el);
+
+    el.find(':not([data-cache])').each((idx, element) =>
+    {
+        const $el = getInstanceOfjQuery(element);
+        const className = $el.attr('class')!.split(' ').shift();
+
+        if (typeof className !== 'undefined' && !!className.length)
+        {
+            Object.assign(cachableDomEls, { [`$${className}`]: $el });
+        }
+    });
+
+    return cachableDomEls;
+};

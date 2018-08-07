@@ -1,6 +1,8 @@
 
 // @ts-ignore
 import { getInstanceOfjQuery } from 'helpers/utils';
+// @ts-ignore
+import { getCachableDomElements } from 'core/bootstrap';
 
 /**
  * Abstract Module class in which all modules inherit from
@@ -26,6 +28,7 @@ abstract class Module
             throw new ReferenceError('You must provide an valid element as a string type or jquery type.');
         }
 
+        Object.assign(this.dom, getCachableDomElements(this.el));
         Object.assign(this.options, opts);
 
         this.init();

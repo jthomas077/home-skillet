@@ -27,10 +27,10 @@ export const getQueryParams = (query: string) : object =>
 /**
  * Determines if the element is an instance of jQuery or gets a jQuery instance
  *
- * @param {string|JQuery} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
- * @returns {jQuery} - JQuery object
+ * @param {string|HTMLElement|JQuery} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
+ * @returns {jQuery} JQuery object
  */
-export const getInstanceOfjQuery = (el: string | JQuery) : JQuery =>
+export const getInstanceOfjQuery = (el: string | HTMLElement | JQuery) : JQuery =>
 {
     return !(el instanceof jQuery) ? $(el as string) : el as JQuery;
 };
