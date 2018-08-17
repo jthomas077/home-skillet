@@ -9,6 +9,7 @@
         "declaration": false,
         "declarationMap": false,
         "strict": true,
+        "strictNullChecks": false,
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
@@ -33,6 +34,7 @@
         "useWebpackText": true,
         "doTypeCheck": true,
         "forkChecker": true,
+        "errorsAsWarnings": true,
         "ignoreDiagnostics": [1135, 2339]
     }
 }

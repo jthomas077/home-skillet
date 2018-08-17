@@ -62,6 +62,16 @@ export default
                 {
                     reportFiles : [`${process.env.SRC}/{js,modules}/**/*.ts`]
                 }
+            },
+
+            {
+                test: /\.html$/,
+
+                loader: 'html-loader',
+                options:
+                {
+                    minimize: true
+                }
             }
         ]
     },

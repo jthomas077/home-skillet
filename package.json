@@ -34,6 +34,7 @@
     "gulp-sass": "^4.0.1",
     "gulp-sass-glob": "^1.0.9",
     "gulp-sourcemaps": "^2.4.0",
+    "html-loader": "^0.5.5",
     "http-proxy-middleware": "^0.18.0",
     "jquery": "^3.3.1",
     "name-that-color": "^0.1.0",
@@ -51,10 +52,12 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp",
     "build": "cross-env NODE_ENV=production gulp build",
+    "build-dev": "cross-env NODE_ENV=production gulp build --dev",
     "tooling": "gulp --tooling",
     "fun": "gulp --fun",
     "conf": "gulp --conf",
-    "hmr": "gulp --hmr"
+    "hmr": "gulp --hmr",
+    "all": "gulp --tooling --hmr --fun --conf"
   },
   "author": "jawsh",
   "license": "MIT"

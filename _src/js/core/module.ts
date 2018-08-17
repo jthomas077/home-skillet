@@ -1,17 +1,18 @@
 
 // @ts-ignore
-import { getInstanceOfjQuery } from 'helpers/utils';
-// @ts-ignore
 import { getCachableDomElements } from 'core/bootstrap';
 
+// @ts-ignore
+import { getInstanceOfjQuery } from 'helpers/utils';
+
 /**
- * Abstract Module class in which all modules inherit from
+ * Abstract Module class in which all modules inherit from.
  */
 abstract class Module
 {
-    private dom: object = {};
-    private options: object = {};
-    private el: JQuery;
+    protected dom: object = {};
+    protected options: object = {};
+    protected el: JQuery;
 
    /**
      * Module constructor
@@ -19,9 +20,9 @@ abstract class Module
      * @param {string|JQuery} el Main DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
      * @param {Object} [opts={}] Module options.
     */
-    protected constructor(el: string | JQuery, opts: object = {})
+    protected constructor(private element: string | JQuery, private opts: object = {})
     {
-        this.el = getInstanceOfjQuery(el);
+        this.el = getInstanceOfjQuery(element);
 
         if (typeof this.el === 'undefined' || !this.el.length)
         {
@@ -36,11 +37,11 @@ abstract class Module
         this.bindEventListeners();
     }
 
-    abstract init() : void;
+    protected init() : void {};
 
-    abstract render() : void;
+    protected render() : void {};
 
-    abstract bindEventListeners() : void;
+    protected bindEventListeners() : void {};
 }
 
 export default Module;

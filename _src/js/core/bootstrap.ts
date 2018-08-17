@@ -7,6 +7,7 @@ import { getInstanceOfjQuery } from 'helpers/utils';
 *
 *  @param {string|Array<string>} imports Modules to import.
 *  @param {string} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
+ * @returns {Promise<string[]>} Promise array
 */
 export async function importModules (imports: string | Array<string>, el: string | JQuery) : Promise<string[]>
 {
@@ -17,19 +18,20 @@ export async function importModules (imports: string | Array<string>, el: string
 
     imports = Array.isArray(imports) ? imports : [imports];
 
-    await imports.map(m =>
-        (async () =>
-        {
-            await import(`../../modules/${m}.ts`)
-                .then(({ default: module }) =>
-                {
-                    initModules(el, (target: string) => new module(target))
-                })
-                .catch(err =>
-                {
-                    Promise.reject(new Error(`There was an error importing your module => ${err}`));
-                })
-        })());
+    await imports.map(async (m) =>
+    {
+        await import(`../../modules/${m}.ts`)
+            .then(({ default: module }) =>
+            {
+                Promise.resolve(
+                    initModules(el, (target: string) => new module(target)));
+            })
+            .catch(err =>
+            {
+                Promise.reject(
+                    new Error(`There was an error importing your module => ${err}`));
+            })
+    });
 
     return await Promise.all(imports);
 };
@@ -61,11 +63,13 @@ export const initModules = (el: string | JQuery, target: Function) : void =>
  */
 export const discoverModules = () : void =>
 {
-    $('[data-module]').each((idx, el) =>
-    {
-        const $el = $(el);
+    const modules = getInstanceOfjQuery('[data-module]');
 
-        importModules($el.data('module').toLowerCase(), $el);
+    modules.each((idx, el) =>
+    {
+        el = $(el);
+
+        importModules(el.data('module').toLowerCase(), el);
     });
 };
 
@@ -77,20 +81,21 @@ export const discoverModules = () : void =>
  * @param {string|JQuery} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
  * @returns {object} object
  */
-export const getCachableDomElements = (el: string | JQuery) : object =>
+export const getCachableDomElements = (element: string | JQuery) : object =>
 {
     let cachableDomEls = {};
 
-    el = getInstanceOfjQuery(el);
+    element = getInstanceOfjQuery(element);
 
-    el.find(':not([data-cache])').each((idx, element) =>
+    element.find(':not([data-cache])').each((idx, el) =>
     {
-        const $el = getInstanceOfjQuery(element);
-        const className = $el.attr('class')!.split(' ').shift();
+        el = getInstanceOfjQuery(el);
 
-        if (typeof className !== 'undefined' && !!className.length)
+        const className = el.attr('class').split(' ').shift();
+
+        if (typeof className !== 'undefined')
         {
-            Object.assign(cachableDomEls, { [`$${className}`]: $el });
+            Object.assign(cachableDomEls, { [`${className}`]: el });
         }
     });
 
