@@ -9,7 +9,7 @@ export const secret_sauce = () =>
 {
     return src(`${process.env.SRC}/js/base.ts`)
         .pipe(plumber())
-        .pipe(webpack(webpackConfig))
+        .pipe(webpack(webpackConfig).on('error', () => {}))
         .pipe(plumber.stop())
         .pipe(dest(`${process.env.DEST}/js`))
         .pipe(browserSync.stream());

@@ -6,7 +6,8 @@ import { getCachableDomElements } from 'core/bootstrap';
 import { getInstanceOfjQuery } from 'helpers/utils';
 
 /**
- * Abstract Module class in which all modules inherit from.
+ * Abstract Module class.
+ * All modules inherit from this class.
  */
 abstract class Module
 {
@@ -29,19 +30,39 @@ abstract class Module
             throw new ReferenceError('You must provide an valid element as a string type or jquery type.');
         }
 
-        Object.assign(this.dom, getCachableDomElements(this.el));
         Object.assign(this.options, opts);
 
+        this.preInit();
         this.init();
+        this.updateDom();
         this.render();
         this.bindEventListeners();
     }
 
+    /**
+     * @abstract
+     */
+    protected preInit() : void {};
+
+    /**
+     * @abstract
+     */
     protected init() : void {};
 
+    /**
+     * @abstract
+     */
     protected render() : void {};
 
+    /**
+     * @abstract
+     */
     protected bindEventListeners() : void {};
+
+    protected updateDom = () : void =>
+    {
+        Object.assign(this.dom, getCachableDomElements(this.el));
+    };
 }
 
 export default Module;
