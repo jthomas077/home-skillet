@@ -12,7 +12,9 @@ import { getInstanceOfjQuery } from 'helpers/utils';
 abstract class Module
 {
     protected dom: object = {};
+
     protected options: object = {};
+
     protected el: JQuery;
 
    /**
@@ -37,6 +39,21 @@ abstract class Module
         this.updateDom();
         this.render();
         this.bindEventListeners();
+
+        if (__DEV__)
+        {
+            const moduleName = this.el.data('module').split(/\//g).pop();
+
+            if (!!Object.keys(this.dom).length)
+            {
+                console.log(`Cached DOM for module: ${moduleName} =>`, this.dom);
+            }
+
+            if (!!Object.keys(this.options).length)
+            {
+                console.log(`Options for module: ${moduleName} =>`, this.options);
+            }
+        }
     }
 
     /**

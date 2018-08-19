@@ -23,8 +23,12 @@ export async function importModules (imports: string | Array<string>, el: string
         await import(`../../modules/${m}.ts`)
             .then(({ default: module }) =>
             {
-                Promise.resolve(
-                    initModules(el, (target: string) => new module(target)));
+                initModules(el, (target: string) =>
+                    new module(target,
+                        JSON.parse(((el.data('module-opts') || '')
+                            .replace(/\'/g, '\"') || JSON.stringify({})))));
+
+                Promise.resolve();
             })
             .catch(err =>
             {
@@ -87,15 +91,53 @@ export const getCachableDomElements = (element: string | JQuery) : object =>
 
     element = getInstanceOfjQuery(element);
 
+    let elementClassName = (element.attr('class') || '')
+            .split(/\s/g, 1)
+            .shift()
+            .split(/-/g).map((str, idx) =>
+            {
+                return (idx === 0)
+                    ? str
+                    : str.replace(/^\w/, c => c.toUpperCase());
+            })
+            .join('');
+
     element.find(':not([data-cache])').each((idx, el) =>
     {
         el = getInstanceOfjQuery(el);
 
-        const className = el.attr('class').split(' ').shift();
+        const parentElement = el.closest('[data-cache-skip]');
 
-        if (typeof className !== 'undefined')
+        if (!parentElement.length)
         {
-            Object.assign(cachableDomEls, { [`${className}`]: el });
+            let className = (el.attr('class') || '')
+                                .split(/\s/g, 1)
+                                .shift()
+                                .replace(/([-a-zA-Z0-9]+)(?:__)?([-a-zA-Z0-9]+)?/gmi, ($0, $1, $2) =>
+                                {
+                                    $1 = ($1 || '').split(/-/gm).map((str, idx) =>
+                                    {
+                                        return (idx === 0)
+                                            ? str
+                                            : str.replace(/^\w/, c => c.toUpperCase());
+                                    });
+
+                                    $2 = ($2 || '').split(/-/gm).map((str, idx) =>
+                                    {
+                                        return str.replace(/^\w/, c => c.toUpperCase());
+                                    });
+
+                                    return [...$1, ...$2]
+                                        .join('')
+                                        .replace(elementClassName, '')
+                                        .replace(/^\w/, c => c.toLowerCase());
+                                });
+
+
+            if (!!className.length)
+            {
+                Object.assign(cachableDomEls, { [`${className}`]: el });
+            }
         }
     });
 
