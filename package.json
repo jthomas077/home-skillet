@@ -55,8 +55,7 @@
     "tooling": "gulp --tooling",
     "fun": "gulp --fun",
     "conf": "gulp --conf",
-    "hmr": "gulp --hmr",
-    "all": "gulp --tooling --hmr --fun --conf"
+    "hmr": "gulp --hmr"
   },
   "author": "jawsh",
   "license": "MIT"

@@ -21,20 +21,20 @@ export async function importModules (imports: string | Array<string>, el: string
     await imports.map(async (m) =>
     {
         await import(`../../modules/${m}.ts`)
-            .then(({ default: module }) =>
-            {
-                initModules(el, (target: string) =>
-                    new module(target,
-                        JSON.parse(((el.data('module-opts') || '')
-                            .replace(/\'/g, '\"') || JSON.stringify({})))));
+                .then(({ default: module }) =>
+                {
+                    initModules(el, (target: string) =>
+                        new module(target,
+                            JSON.parse(((el.data('module-opts') || '')
+                                .replace(/\'/g, '\"') || JSON.stringify({})))));
 
-                Promise.resolve();
-            })
-            .catch(err =>
-            {
-                Promise.reject(
-                    new Error(`There was an error importing your module => ${err}`));
-            })
+                    Promise.resolve();
+                })
+                .catch(err =>
+                {
+                    Promise.reject(
+                        new Error(`There was an error importing your module => ${err}`));
+                });
     });
 
     return await Promise.all(imports);
@@ -136,7 +136,9 @@ export const getCachableDomElements = (element: string | JQuery) : object =>
 
             if (!!className.length)
             {
-                Object.assign(cachableDomEls, { [`${className}`]: el });
+                const elList = element.find(`.${el.attr('class').split(/\s/g, 1).shift()}`);
+
+                Object.assign(cachableDomEls, { [`${className}`]: elList });
             }
         }
     });

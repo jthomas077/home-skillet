@@ -37,8 +37,8 @@ abstract class Module
         this.preInit();
         this.init();
         this.updateDom();
-        this.render();
         this.bindEventListeners();
+        this.render();
 
         if (__DEV__)
         {
@@ -76,7 +76,7 @@ abstract class Module
      */
     protected bindEventListeners() : void {};
 
-    protected updateDom = () : void =>
+    protected updateDom() : void
     {
         Object.assign(this.dom, getCachableDomElements(this.el));
     };
