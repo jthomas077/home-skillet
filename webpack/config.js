@@ -10,7 +10,7 @@ export default
     output:
     {
         path: path.resolve(`${process.env.DEST}`),
-        publicPath: '/js/',
+        publicPath: (__DEV__ || __QA__) ? '/js/' : `${process.env.ASSET_PREFIX}/js/`,
         filename: '[name].js'
     },
 

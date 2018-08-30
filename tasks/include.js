@@ -14,7 +14,8 @@ export const cool_kat = () =>
                 basepath: process.env.SRC,
                 context:
                 {
-                    titlePrefix: process.env.APP_NAME
+                    titlePrefix: process.env.APP_NAME,
+                    assetPrefix: (__DEV__ || __QA__) ? '' : process.env.ASSET_PREFIX
                 }
             }))
             .pipe(plumber.stop())
