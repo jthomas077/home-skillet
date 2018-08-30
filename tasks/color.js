@@ -12,8 +12,8 @@ export const color_me_silly = () =>
             .pipe(plumber())
             .pipe(inject(src(`${process.env.SRC}/sass/core/_color-palette.scss`),
             {
-                starttag: '// ******* GET COLORS ******* //',
-                endtag: '// ******* GOT COLORS ******* //',
+                starttag: '/*',
+                endtag: '*/',
                 removeTags: true,
 
                 transform: (filepath, file, i, length) =>

@@ -91,11 +91,15 @@ export const getCachableDomElements = (element: string | JQuery) : object =>
 
     element = getInstanceOfjQuery(element);
 
+    const moduleName = element.data('module').split(/\//g).pop();
+
     let elementClassName = (element.attr('class') || '')
             .split(/\s/g, 1)
             .shift()
             .split(/-/g).map((str, idx) =>
             {
+                str = str.split('__', 1).shift();
+
                 return (idx === 0)
                     ? str
                     : str.replace(/^\w/, c => c.toUpperCase());
@@ -130,6 +134,7 @@ export const getCachableDomElements = (element: string | JQuery) : object =>
                                     return [...$1, ...$2]
                                         .join('')
                                         .replace(elementClassName, '')
+                                        .replace((elementClassName !== moduleName) ? moduleName : '', '')
                                         .replace(/^\w/, c => c.toLowerCase());
                                 });
 
