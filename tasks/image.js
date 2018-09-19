@@ -4,9 +4,13 @@ import plumber from 'gulp-plumber';
 import imagemin from 'gulp-imagemin';
 import browserSync from 'browser-sync';
 
-export const mri = () =>
+export const mri = (img) =>
 {
-    return src(`${process.env.SRC}/media/images/**/*`)
+    const srcPath = (typeof img === 'string' && !!img.length)
+            ? img
+            : `${process.env.SRC}/media/images/**/*`;
+
+    return src(srcPath)
             .pipe(plumber())
             .pipe(imagemin(
             [
@@ -33,6 +37,6 @@ export const mri = () =>
                 })
             ]))
             .pipe(plumber.stop())
-            .pipe(dest(`${process.env.DEST}/media/images`))
+            .pipe(dest(`${process.env.DEST}/media/images/`))
             .pipe(browserSync.stream());
 };

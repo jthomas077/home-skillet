@@ -34,6 +34,10 @@ const globalConstants =
     __DEV__: process.env.NODE_ENV !== 'production',
 
 
+    /**
+     * Check to see if we are building for QA.
+     * This extends to both the toolkit and your project.
+     */
     __QA__: process.env.NODE_ENV === 'production' && args.includes('--qa'),
 
     /**

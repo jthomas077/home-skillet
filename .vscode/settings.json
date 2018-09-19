@@ -13,5 +13,7 @@
     "typescript.referencesCodeLens.enabled": true,
     "typescript.implementationsCodeLens.enabled": true,
     "typescript.validate.enable": false,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "editor.autoIndent": false,
+    "editor.smoothScrolling": true
 }

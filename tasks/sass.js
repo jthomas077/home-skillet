@@ -7,14 +7,14 @@ import sassyVars from 'gulp-sass-variables';
 import sourcemap from 'gulp-sourcemaps';
 import browserSync from 'browser-sync';
 
-export const make_it_sassy = series(GULP_TASK('color'), () =>
+export const make_it_sassy = () =>
 {
     return src(`${process.env.SRC}/sass/base.scss`)
             .pipe(plumber())
             .pipe(sassyVars(
             {
-                $assetPrefix: (__DEV__ || __QA__) ? '' : process.env.ASSET_PREFIX,
-                $assetFontPrefix: (__DEV__ || __QA__) ? '' : process.env.ASSET_FONT_PREFIX
+                $BUILD: (!__DEV__ && !__QA__),
+                $assetPrefix: (__DEV__ || __QA__) ? '' : process.env.ASSET_PREFIX
             }))
             .pipe(sassyGlobber())
             .pipe(sourcemap.init())
@@ -23,7 +23,8 @@ export const make_it_sassy = series(GULP_TASK('color'), () =>
                     includePaths:
                     [
                         './node_modules/normalize-scss/sass/',
-                        './node_modules/sass-mq/'
+                        './node_modules/sass-mq/',
+                        './node_modules/swiper/dist/css/'
                     ],
 
                     outputStyle: (__DEV__) ? '' : 'compressed'
@@ -33,4 +34,4 @@ export const make_it_sassy = series(GULP_TASK('color'), () =>
             .pipe(plumber.stop())
             .pipe(dest(`${process.env.DEST}/css`))
             .pipe(browserSync.stream());
-});
+};

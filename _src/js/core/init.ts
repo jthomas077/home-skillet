@@ -1,6 +1,7 @@
 
 // @ts-ignore
 import { discoverModules } from 'core/bootstrap';
+
 // @ts-ignore
 import { renderYear, renderSvg } from 'helpers';
 

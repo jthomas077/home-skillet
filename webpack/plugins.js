@@ -10,7 +10,9 @@ export const plugins = () =>
         {
             __DEV__: __DEV__,
             __HMR__: __HMR__,
-            __QA__: __QA__
+            __QA__: __QA__,
+
+            'process.env': JSON.stringify(process.env)
         }),
 
         new webpack.ProvidePlugin(

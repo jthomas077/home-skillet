@@ -1,4 +1,5 @@
 
+import { series } from 'gulp';
 import browserSync from 'browser-sync';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
@@ -50,13 +51,12 @@ export const got_me_goggles = () =>
                 }
 
 
-                const pages = fs.readdirSync(`${process.env.SRC}/pages/`).map(file => `/${file.replace(/\.html/gi, '')}`);
+                //const pages = fs.readdirSync(`${process.env.SRC}/pages/`).map(file => `/${file.replace(/\.html/gi, '')}`);
 
                 /**
-                 * Add a proxy for local requests.
-                 * Instead of using a `directory` page of pages or links such as `/pages/my-awesome-page.html`,
-                 * we can keep links proper such as `/my-awesome-page`
+                 *
                  */
+                /*
                 bs.addMiddleware('*', proxyMiddleware(pages,
                 {
                     target: `${bsUrl}`,
@@ -67,10 +67,10 @@ export const got_me_goggles = () =>
                         return `/pages/${path}.html`;
                     }
                 }));
-
+                */
 
                 /**
-                 * Add a proxy for API requests.
+                 *
                  */
                 if (process.env.MOCK_API_URL !== '')
                 {
